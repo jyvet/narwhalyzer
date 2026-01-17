@@ -17,7 +17,7 @@
  *   }
  * 
  * Copyright (c) 2026
- * Licensed under MIT License
+ * Licensed under GPL-3.0 License
  */
 
 #ifndef NARWHALYZER_MACROS_H

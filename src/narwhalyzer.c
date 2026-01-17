@@ -5,7 +5,7 @@
  * Provides section tracking, timing, and profiling report generation.
  * 
  * Copyright (c) 2026
- * Licensed under MIT License
+ * Licensed under GPL-3.0 License
  */
 
 #define _GNU_SOURCE

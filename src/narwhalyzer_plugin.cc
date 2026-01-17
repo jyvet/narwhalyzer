@@ -6,7 +6,7 @@
  * at the GIMPLE level.
  * 
  * Copyright (c) 2026
- * Licensed under MIT License
+ * Licensed under GPL-3.0 License
  */
 
 #include <gcc-plugin.h>

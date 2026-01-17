@@ -10,7 +10,7 @@
  * 3. Uses a late GIMPLE pass to insert instrumentation
  * 
  * Copyright (c) 2026
- * Licensed under MIT License
+ * Licensed under GPL-3.0 License
  */
 
 #include <gcc-plugin.h>

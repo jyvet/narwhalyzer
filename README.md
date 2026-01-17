@@ -373,7 +373,7 @@ Define these before including the header to customize:
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+GPL-3.0 License - see [LICENSE](LICENSE) for details.
 
 ## Contributing
 
