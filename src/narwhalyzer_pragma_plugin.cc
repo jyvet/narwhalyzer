@@ -1,8 +1,8 @@
 /*
  * narwhalyzer_pragma_plugin.cc
  * 
- * Alternative GCC Plugin implementation that uses a simpler pragma-to-attribute
- * approach for more reliable instrumentation.
+ * GCC Plugin implementation that uses a pragma-to-attribute approach for
+ * reliable instrumentation.
  * 
  * This plugin:
  * 1. Registers the #pragma narwhalyzer directive

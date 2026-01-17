@@ -189,29 +189,7 @@ set_target_properties(narwhalyzer_plugin PROPERTIES
     SUFFIX ".so"
 )
 
-# ============================================================================
-# Alternative Plugin Implementation
-# ============================================================================
 
-add_library(narwhalyzer_plugin_alt MODULE
-    src/narwhalyzer_plugin.cc
-)
-
-target_include_directories(narwhalyzer_plugin_alt PRIVATE
-    ${GCC_PLUGIN_INCLUDE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-
-target_compile_options(narwhalyzer_plugin_alt PRIVATE
-    "${COMMON_FLAGS}"
-    "${PLUGIN_CXX_FLAGS}"
-)
-
-set_target_properties(narwhalyzer_plugin_alt PROPERTIES
-    PREFIX ""
-    OUTPUT_NAME "narwhalyzer_alt"
-    SUFFIX ".so"
-)
 
 # ============================================================================
 # Examples

@@ -313,7 +313,6 @@ See the [examples/](examples/) directory for complete example programs:
 - `simple_example.c` - Basic usage demonstration
 - `nested_example.c` - Nested section tracking
 - `unstructured_example.c` - Unstructured region profiling with start/stop
-- `multifile_example/` - Multi-file project instrumentation
 
 ## API Reference
 
