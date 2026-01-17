@@ -1,5 +1,5 @@
 /*
- * narwhalyzer_runtime.c
+ * narwhalyzer.c
  * 
  * Runtime support implementation for the Narwhalyzer GCC instrumentation plugin.
  * Provides section tracking, timing, and profiling report generation.

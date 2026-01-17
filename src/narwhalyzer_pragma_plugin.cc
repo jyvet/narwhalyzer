@@ -69,7 +69,7 @@ static struct plugin_info narwhalyzer_info = {
             "\n"
             "The structured pragma must appear immediately before a function definition.\n"
             "Start/stop pragmas can wrap arbitrary code regions.\n"
-            "Link with -lnarwhalyzer_runtime to get the profiling report.\n"
+            "Link with -lnarwhalyzer to get the profiling report.\n"
 };
 
 /* ============================================================================

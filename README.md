@@ -71,8 +71,8 @@ make
 After building, you'll have:
 
 - `narwhalyzer.so` - The GCC plugin
-- `libnarwhalyzer_runtime.so` - Runtime support library (shared)
-- `libnarwhalyzer_runtime.a` - Runtime support library (static)
+- `libnarwhalyzer.so` - Runtime support library (shared)
+- `libnarwhalyzer.a` - Runtime support library (static)
 
 ## Usage
 
@@ -85,7 +85,7 @@ narwhalyzer supports two pragma forms:
 Use `#pragma narwhalyzer <section_name>` immediately before a function definition:
 
 ```c
-#include "narwhalyzer_runtime.h"
+#include "narwhalyzer.h"
 
 #pragma narwhalyzer compute_phase
 void compute_heavy_work(int iterations) {
@@ -111,7 +111,7 @@ int main() {
 Use `#pragma narwhalyzer start <name>` and `#pragma narwhalyzer stop <name>` to instrument arbitrary code regions:
 
 ```c
-#include "narwhalyzer_runtime.h"
+#include "narwhalyzer.h"
 
 void process_data(int *data, int n) {
     // Setup code (not profiled)
@@ -148,10 +148,10 @@ void process_data(int *data, int n) {
 ```bash
 gcc -fplugin=/path/to/narwhalyzer.so \
     -I/path/to/include \
-    -include narwhalyzer_runtime.h \
+    -include narwhalyzer.h \
     your_program.c \
     -L/path/to/lib \
-    -lnarwhalyzer_runtime \
+    -lnarwhalyzer \
     -lpthread \
     -o your_program
 ```
@@ -159,7 +159,7 @@ gcc -fplugin=/path/to/narwhalyzer.so \
 **Using the build helper script (after CMake build):**
 
 ```bash
-./build_example.sh examples/simple_example.c my_program
+./narwhalyzer-gcc examples/simple_example.c my_program
 ```
 
 ### 3. Running and Getting Results
@@ -368,7 +368,7 @@ Define these before including the header to customize:
 ```c
 #define NARWHALYZER_MAX_SECTIONS 2048      // Max distinct sections
 #define NARWHALYZER_MAX_NESTING_DEPTH 128  // Max nesting depth
-#include "narwhalyzer_runtime.h"
+#include "narwhalyzer.h"
 ```
 
 ## License

@@ -4,8 +4,8 @@
  * Basic demonstration of Narwhalyzer pragma usage.
  * 
  * Build with:
- *   gcc -fplugin=narwhalyzer.so -I<include_path> -include narwhalyzer_runtime.h \
- *       simple_example.c -L<lib_path> -lnarwhalyzer_runtime -lpthread -o simple_example
+ *   gcc -fplugin=narwhalyzer.so -I<include_path> -include narwhalyzer.h \
+ *       simple_example.c -L<lib_path> -lnarwhalyzer -lpthread -o simple_example
  */
 
 #include <stdio.h>

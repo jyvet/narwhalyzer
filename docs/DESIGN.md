@@ -7,7 +7,7 @@ This document explains the internal architecture and implementation details of t
 Narwhalyzer consists of three main components:
 
 1. **GCC Plugin** (`narwhalyzer.so`) - Parses pragmas and inserts instrumentation
-2. **Runtime Library** (`libnarwhalyzer_runtime.so`) - Tracks timing and generates reports
+2. **Runtime Library** (`libnarwhalyzer.so`) - Tracks timing and generates reports
 3. **Macro Header** (`narwhalyzer_macros.h`) - Alternative macro-based instrumentation
 
 ## How the Pragma is Parsed
@@ -64,15 +64,17 @@ pass_info.pos_op = PASS_POS_INSERT_AFTER;
 For each instrumented function, we:
 
 1. **Create a static index variable** to cache the section's runtime index:
+
    ```c
    static int __narwhalyzer_idx_<section>_<line> = -1;
    ```
 
 2. **Insert entry code** at the function entry point:
+
    ```c
    // Register section (runtime handles caching)
    __narwhalyzer_idx = __narwhalyzer_register_section(name, file, line);
-   
+
    // Record entry and get context
    int ctx = __narwhalyzer_section_enter(__narwhalyzer_idx);
    ```
@@ -125,17 +127,17 @@ When entering a section:
 ```c
 int __narwhalyzer_section_enter(int section_index) {
     int ctx_idx = ++g_context_stack_top;
-    
+
     g_context_stack[ctx_idx].section_index = section_index;
     g_context_stack[ctx_idx].start_time_ns = __narwhalyzer_get_timestamp_ns();
     g_context_stack[ctx_idx].parent_context_index = ctx_idx > 0 ? ctx_idx - 1 : -1;
-    
+
     // Record parent relationship for hierarchy
     if (g_sections[section_index].parent_index == -1 && ctx_idx > 0) {
-        g_sections[section_index].parent_index = 
+        g_sections[section_index].parent_index =
             g_context_stack[ctx_idx - 1].section_index;
     }
-    
+
     return ctx_idx;
 }
 ```
@@ -153,11 +155,11 @@ When exiting a section:
 void __narwhalyzer_section_exit(int context_index) {
     uint64_t end_time = __narwhalyzer_get_timestamp_ns();
     uint64_t elapsed = end_time - g_context_stack[context_index].start_time_ns;
-    
+
     // Atomic updates to statistics
     __atomic_fetch_add(&section->cumulative_time_ns, elapsed, __ATOMIC_RELAXED);
     // CAS loops for min/max updates
-    
+
     g_context_stack_top--;
 }
 ```
@@ -185,13 +187,13 @@ __attribute__((destructor(101)))
 void __narwhalyzer_fini(void) {
     // Compute total program time
     g_program_end_time_ns = __narwhalyzer_get_timestamp_ns();
-    
+
     // Generate flat summary (sorted by cumulative time)
     print_flat_summary();
-    
+
     // Generate hierarchical view (using parent indices)
     print_hierarchy_view();
-    
+
     // Print section details
     print_section_details();
 }

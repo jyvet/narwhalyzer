@@ -9,8 +9,8 @@
  * no macros are required!
  * 
  * Build with:
- *   gcc -fplugin=narwhalyzer.so -I<include_path> -include narwhalyzer_runtime.h \
- *       unstructured_example.c -L<lib_path> -lnarwhalyzer_runtime -lpthread -lm \
+ *   gcc -fplugin=narwhalyzer.so -I<include_path> -include narwhalyzer.h \
+ *       unstructured_example.c -L<lib_path> -lnarwhalyzer -lpthread -lm \
  *       -o unstructured_example
  */
 

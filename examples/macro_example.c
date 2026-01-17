@@ -5,7 +5,7 @@
  * This works without the GCC plugin - useful for testing or as a fallback.
  * 
  * Build with:
- *   gcc -I<include_path> macro_example.c -L<lib_path> -lnarwhalyzer_runtime \
+ *   gcc -I<include_path> macro_example.c -L<lib_path> -lnarwhalyzer \
  *       -lpthread -lm -o macro_example
  */
 

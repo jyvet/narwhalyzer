@@ -678,7 +678,7 @@ static void inject_include_callback(void *event_data ATTRIBUTE_UNUSED,
         
         /* Inform user about the required header */
         inform(UNKNOWN_LOCATION, 
-               "narwhalyzer: ensure -include narwhalyzer_runtime.h is used "
+               "narwhalyzer: ensure -include narwhalyzer.h is used "
                "or include the header manually");
     }
 }

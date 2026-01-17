@@ -5,8 +5,8 @@
  * Shows how hierarchical profiling data is captured and reported.
  * 
  * Build with:
- *   gcc -fplugin=narwhalyzer.so -I<include_path> -include narwhalyzer_runtime.h \
- *       nested_example.c -L<lib_path> -lnarwhalyzer_runtime -lpthread -lm -o nested_example
+ *   gcc -fplugin=narwhalyzer.so -I<include_path> -include narwhalyzer.h \
+ *       nested_example.c -L<lib_path> -lnarwhalyzer -lpthread -lm -o nested_example
  */
 
 #include <stdio.h>
